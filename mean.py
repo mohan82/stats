@@ -1,6 +1,4 @@
 import sys
-import matplotlib.pyplot as pyplot
-
 
 
 def sum(numbers):
@@ -10,14 +8,22 @@ def sum(numbers):
     return total
 
 
-def mean(numbers):
-    return sum(numbers)/len(numbers)
+def mean(numbers): return sum(numbers) / len(numbers)
+
+
+def median(numbers):
+    sorted_num = sorted(numbers)
+    if len(sorted_num) % 2 != 0:
+        return sorted_num[int(len(sorted_num)/2)]
+    else:
+        middle = int(len(sorted_num) / 2)
+        a = sorted_num[middle]
+        b = sorted_num[middle - 1]
+        return (a + b) / 2
 
 
 def main(args):
     print(mean([1, 2, 3, 4, 5, 6]))
-    pyplot.pie([1,2,3])
-    pyplot.show()
 
 
 if __name__ == '__main__':
